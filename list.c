@@ -10,14 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-t_list		*list_new(void)
+#include "push_swap.h"
+
+t_list		*list_new(int value)
 {
 	t_list	*result;
 
 	result = (t_list *)malloc(sizeof(t_list));
 	if (result != NULL)
 	{
-
+		result->value = value;
+		result->prev = NULL;
+		result->next = NULL;
 	}
 	return (result);
+}
+
+t_list		*list_add(t_list *list, int value)
+{
+	if (list == NULL)
+		return (list_new(value));
+	while (list->next)
+		list = list->next;
+	list->next = list_new(value);
+	return (list);
 }
