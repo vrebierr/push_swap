@@ -19,10 +19,10 @@ static int	verif(t_dlist *list)
 	return (1);
 }
 
-void		p(t_dlist *l_a, t_dlist *l_b)
+static void		p(t_dlist *l_a, t_dlist *l_b)
 {
-	(void)l_a;
-	(void)l_b;
+	list_prepend(l_a, l_b->head->data);
+	list_del(l_b, l_b->head);
 }
 
 void		pa(t_dlist *l_a, t_dlist *l_b)
@@ -38,7 +38,7 @@ void		pb(t_dlist *l_a, t_dlist *l_b)
 {
 	if (verif(l_a))
 	{
-		p(l_a, l_b);
+		p(l_b, l_a);
 		ft_putstr("pb");
 	}
 }

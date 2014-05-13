@@ -28,7 +28,7 @@ int		main(int argc, char **argv)
 	list = list_new();
 	while (*argv)
 	{
-		list = list_add(list, ft_atoi(*argv));
+		list = list_append(list, ft_atoi(*argv));
 		argv++;
 	}
 	print_list(list);

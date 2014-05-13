@@ -30,10 +30,12 @@ typedef struct		s_dlist
 }					t_dlist;
 
 t_dlist				*list_new(void);
-t_dlist				*list_add(t_dlist *list, int value);
+t_dlist				*list_append(t_dlist *list, int value);
 void				sa(t_dlist *list);
 void				sb(t_dlist *list);
 void				ss(t_dlist *l_a, t_dlist *l_b);
 void				print_list(t_dlist *list);
+t_dlist				*list_prepend(t_dlist *list, int value);
+t_dlist				*list_del(t_dlist *list, t_node *node);
 
 #endif
