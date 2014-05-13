@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	verif(t_dlist *list)
+static int		verif(t_dlist *list)
 {
 	if (list == NULL || list->head == NULL)
 		return (0);
@@ -25,7 +25,7 @@ static void		p(t_dlist *l_a, t_dlist *l_b)
 	list_del(l_b, l_b->head);
 }
 
-void		pa(t_dlist *l_a, t_dlist *l_b)
+void			pa(t_dlist *l_a, t_dlist *l_b)
 {
 	if (verif(l_b))
 	{
@@ -34,7 +34,7 @@ void		pa(t_dlist *l_a, t_dlist *l_b)
 	}
 }
 
-void		pb(t_dlist *l_a, t_dlist *l_b)
+void			pb(t_dlist *l_a, t_dlist *l_b)
 {
 	if (verif(l_a))
 	{

@@ -37,5 +37,7 @@ void				ss(t_dlist *l_a, t_dlist *l_b);
 void				print_list(t_dlist *list);
 t_dlist				*list_prepend(t_dlist *list, int value);
 t_dlist				*list_del(t_dlist *list, t_node *node);
+void				pa(t_dlist *l_a, t_dlist *l_b);
+void				pb(t_dlist *l_a, t_dlist *l_b);
 
 #endif

@@ -86,27 +86,29 @@ t_dlist		*list_prepend(t_dlist *list, int value)
 
 t_dlist		*list_del(t_dlist *list, t_node *node)
 {
-	if (list != NULL)
+	if (node->next == NULL && node->prev == NULL)
 	{
-		if (node->prev == NULL)
-		{
-			list->head = node->next;
-			list->head->prev = NULL;
-		}
-		else if (node->next == NULL)
-		{
-			list->tail = node->prev;
-			list->tail->next = NULL;
-		}
-		else
-		{
-			node->prev->next = node->next;
-			node->next->prev = node->prev;
-		}
-		free(node);
-		node = NULL;
-		list->len--;
+		list->head = NULL;
+		list->tail = NULL;
 	}
+	else if (node->prev == NULL)
+	{
+		list->head = node->next;
+		list->head->prev = NULL;
+	}
+	else if (node->next == NULL)
+	{
+		list->tail = node->prev;
+		list->tail->next = NULL;
+	}
+	else
+	{
+		node->prev->next = node->next;
+		node->next->prev = node->prev;
+	}
+	free(node);
+	node = NULL;
+	list->len--;
 	return (list);
 }
 

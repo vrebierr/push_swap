@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   r.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vrebierr <vrebierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/05/12 16:43:09 by vrebierr          #+#    #+#             */
-/*   Updated: 2014/05/12 16:43:10 by vrebierr         ###   ########.fr       */
+/*   Created: 2014/05/13 16:32:23 by vrebierr          #+#    #+#             */
+/*   Updated: 2014/05/13 16:32:23 by vrebierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	show_usage(void)
+static void	r(t_dlist *list)
 {
-	ft_putstr("Usage: ./push_swap value1 value2 value3 etc...");
-	exit(1);
+	list_append(list, list->head->data);
+	list_del(list, list->head);
 }
 
-int		main(int argc, char **argv)
+void	ra(t_dlist *list)
 {
-	t_dlist	*l_a;
-	t_dlist *l_b;
+	r(list);
+	ft_putstr("ra");
+}
 
-	if (argc <= 1)
-		show_usage();
-	argv++;
-	l_a = list_new();
-	l_b = list_new();
-	while (*argv)
-	{
-		l_a = list_append(l_a, ft_atoi(*argv));
-		argv++;
-	}
-	return (0);
+void	rb(t_dlist *list)
+{
+	r(list);
+	ft_putstr("rb");
+}
+
+void	rr(t_dlist *l_a, t_dlist *l_b)
+{
+	r(l_a);
+	r(l_b);
+	ft_putstr("rr");
 }
