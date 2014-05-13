@@ -12,12 +12,28 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include <libft.h>
+# include <stdlib.h>
 
-typedef struct		s_list
+typedef struct		s_node
 {
-	int				value;
-	struct s_list	*prev;
-	struct s_list	*next;
-}					t_list;
+	int				data;
+	struct s_node	*next;
+	struct s_node	*prev;
+}					t_node;
+
+typedef struct		s_dlist
+{
+	size_t			len;
+	t_node			*head;
+	t_node			*tail;
+}					t_dlist;
+
+t_dlist				*list_new(void);
+t_dlist				*list_add(t_dlist *list, int value);
+void				sa(t_dlist *list);
+void				sb(t_dlist *list);
+void				ss(t_dlist *l_a, t_dlist *l_b);
+void				print_list(t_dlist *list);
 
 #endif

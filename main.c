@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 void	show_usage()
 {
 	ft_putstr("Usage: ./push_swap value1 value2 value3 etc...");
@@ -18,7 +20,20 @@ void	show_usage()
 
 int		main(int argc, char **argv)
 {
+	t_dlist	*list;
+
 	if (argc <= 1)
 		show_usage();
+	argv++;
+	list = list_new();
+	while (*argv)
+	{
+		list = list_add(list, ft_atoi(*argv));
+		argv++;
+	}
+	print_list(list);
+	sa(list);
+	sa(list);
+	print_list(list);
 	return (0);
 }

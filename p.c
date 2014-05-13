@@ -1,13 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   p.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vrebierr <vrebierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/05/12 16:45:36 by vrebierr          #+#    #+#             */
-/*   Updated: 2014/05/12 16:45:36 by vrebierr         ###   ########.fr       */
+/*   Created: 2014/05/13 15:18:32 by vrebierr          #+#    #+#             */
+/*   Updated: 2014/05/13 15:18:33 by vrebierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
+static int	verif(t_dlist *list)
+{
+	if (list == NULL || list->head == NULL)
+		return (0);
+	return (1);
+}
+
+void		p(t_dlist *l_a, t_dlist *l_b)
+{
+	(void)l_a;
+	(void)l_b;
+}
+
+void		pa(t_dlist *l_a, t_dlist *l_b)
+{
+	if (verif(l_b))
+	{
+		p(l_a, l_b);
+		ft_putstr("pa");
+	}
+}
+
+void		pb(t_dlist *l_a, t_dlist *l_b)
+{
+	if (verif(l_a))
+	{
+		p(l_a, l_b);
+		ft_putstr("pb");
+	}
+}
