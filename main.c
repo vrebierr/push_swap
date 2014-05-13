@@ -14,7 +14,7 @@
 
 void	show_usage(void)
 {
-	ft_putstr("Usage: ./push_swap value1 value2 value3 etc...");
+	ft_putstr("Usage: ./push_swap value1 value2 value3 etc...\n");
 	exit(1);
 }
 

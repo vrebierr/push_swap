@@ -18,19 +18,19 @@ static void	r(t_dlist *list)
 	list_del(list, list->tail);
 }
 
-void	rra(t_dlist *list)
+void		rra(t_dlist *list)
 {
 	r(list);
 	ft_putstr("rra");
 }
 
-void	rrb(t_dlist *list)
+void		rrb(t_dlist *list)
 {
 	r(list);
 	ft_putstr("rrb");
 }
 
-void	rrr(t_dlist *l_a, t_dlist *l_b)
+void		rrr(t_dlist *l_a, t_dlist *l_b)
 {
 	r(l_a);
 	r(l_b);

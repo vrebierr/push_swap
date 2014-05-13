@@ -12,31 +12,63 @@
 
 #include "push_swap.h"
 
-static void	bigger_first(t_dlist *list)
+static void	smallest_first(t_dlist *list)
 {
 	t_node	*node;
 	int		tmp;
 
-	tmp = 0;
+	tmp = list->head->data;
 	node = list->head;
 	while (node != NULL)
 	{
-		if (node->data >= tmp)
+		if (node->data < tmp)
 			tmp = node->data;
 		node = node->next;
 	}
 	while (list->head->data != tmp)
+	{
 		ra(list);
+		ft_putchar(' ');
+	}
+}
+
+int			is_sort(t_dlist *list)
+{
+	t_node	*node;
+
+	node = list->head;
+	if (list->head->data == list->tail->data)
+		return (1);
+	while (node->next != NULL)
+	{
+		if (node->data > node->next->data)
+			return (0);
+		node = node->next;
+	}
+	return (1);
 }
 
 void		push_swap(t_dlist *l_a, t_dlist *l_b)
 {
+	if (is_sort(l_a))
+		return ;
 	while (l_a->head != NULL)
 	{
-		bigger_first(l_a);
+		smallest_first(l_a);
 		pb(l_a, l_b);
+		ft_putchar(' ');
 	}
 	while (l_b->head != NULL)
-		pa(l_a, l_b);
-	print_list(l_a);
+	{
+		if (l_b->head->next == NULL)
+		{
+			pa(l_a, l_b);
+			ft_putchar('\n');
+		}
+		else
+		{
+			pa(l_a, l_b);
+			ft_putchar(' ');
+		}
+	}
 }
