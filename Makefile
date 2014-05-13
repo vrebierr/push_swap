@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = push_swap
-SRC = main.c list.c s.c p.c
+SRC = main.c list.c s.c p.c r.c rr.c push_swap.c
 OBJS = $(SRC:.c=.o)
 FLAGS = -Wall -Werror -Wextra -O3 -g
 LFLAGS = -L $(LDIR) -lft

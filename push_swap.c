@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vrebierr <vrebierr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/05/12 16:43:09 by vrebierr          #+#    #+#             */
-/*   Updated: 2014/05/12 16:43:10 by vrebierr         ###   ########.fr       */
+/*   Created: 2014/05/13 16:44:29 by vrebierr          #+#    #+#             */
+/*   Updated: 2014/05/13 16:44:30 by vrebierr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	show_usage(void)
+static void	bigger_first(t_dlist *list)
 {
-	ft_putstr("Usage: ./push_swap value1 value2 value3 etc...");
-	exit(1);
+	t_node	*node;
+	int		tmp;
+
+	tmp = 0;
+	node = list->head;
+	while (node != NULL)
+	{
+		if (node->data >= tmp)
+			tmp = node->data;
+		node = node->next;
+	}
+	while (list->head->data != tmp)
+		ra(list);
 }
 
-int		main(int argc, char **argv)
+void		push_swap(t_dlist *l_a, t_dlist *l_b)
 {
-	t_dlist	*l_a;
-	t_dlist *l_b;
-
-	if (argc <= 1)
-		show_usage();
-	argv++;
-	l_a = list_new();
-	l_b = list_new();
-	while (*argv)
+	while (l_a->head != NULL)
 	{
-		l_a = list_append(l_a, ft_atoi(*argv));
-		argv++;
+		bigger_first(l_a);
+		pb(l_a, l_b);
 	}
-	push_swap(l_a, l_b);
-	return (0);
+	while (l_b->head != NULL)
+		pa(l_a, l_b);
+	print_list(l_a);
 }
